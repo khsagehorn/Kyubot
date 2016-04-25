@@ -1,4 +1,4 @@
-
+var moveArr = [];
 
  // Joystick Contructor
     var scene = new THREE.Scene();
@@ -36,6 +36,9 @@
               + (joystick.right() ? ' right'  : '')
               + (joystick.up()  ? ' up'   : '')
               + (joystick.left()  ? ' left' : '')
-              + (joystick.down()  ? ' down'   : '') 
-          }, 10);
+              + (joystick.down()  ? ' down'   : '')
+
+              moveArr.push(direction);
+              console.log(moveArr);
+          });
 
