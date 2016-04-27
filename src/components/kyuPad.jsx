@@ -7,6 +7,7 @@ class RandomForm extends Component {
       var clock = new THREE.Clock();
       var keyboard = new THREEx.KeyboardState();
       var joystick = new VirtualJoystick({
+        container: document.getElementById("result"),
         mouseSupport  : true,
         stationaryBase  : true,
         baseX   : 200,
