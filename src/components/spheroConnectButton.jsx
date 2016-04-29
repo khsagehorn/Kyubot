@@ -72,7 +72,6 @@ class SpheroConnectButton extends Component {
     let that = this;
     setInterval(function () {
       that.roll(150, Math.floor(Math.random() * 360));
-      console.log(that.props)
     }, 1200)
   }
 
@@ -234,6 +233,7 @@ rollKyu() {
           <button id="connect" onClick={this.spheroConnect}>Find Sphero</button>
           <button id="roll" onClick={this.rollKyu.bind(this)}>Roll Meee</button>
           <button id="random" onClick={this.random.bind(this)}>Freak Out!</button>
+          <button id="disconnect" onClick={this.sleep.bind(this)}>Sleep</button>
 
 
         </div>

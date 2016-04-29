@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SpheroConnectButton from './spheroConnectButton';
+import CurrentlyHappening from './currentlyHappening';
 
 class KyuPad extends Component {
   constructor() {
@@ -48,7 +49,7 @@ class KyuPad extends Component {
         let dy = Math.floor(self.joystick.deltaY());
         let speed = Math.floor((Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2)))*2.45);
         let rad = (Math.atan2(self.joystick.deltaY(),self.joystick.deltaX())) + Math.PI;
-        let direction = ((Math.floor(rad * (180 / Math.PI))) + 270) % 360;
+        let direction = ((Math.floor(rad * (180 / Math.PI))) + 90) % 360;
 
         let outputEl  = document.getElementById('result');
             outputEl.innerHTML  = '<b>Result:</b> '
@@ -76,10 +77,12 @@ class KyuPad extends Component {
           let moveObject = {speed: speed, direction: direction};
 
           this.setState({
-            moveObj:moveObject
+            moveObj:moveObject,
+            moveHistory:moveHistory
+
           })
 
-          return moveObject;
+          return moveObject, moveHistory;
     }
 
 
@@ -90,6 +93,7 @@ class KyuPad extends Component {
       <div>
         <div id="result">Something</div>
         <SpheroConnectButton buildObject={ this.state.moveObj } />
+        <CurrentlyHappening movement={ this.state.moveHistory } />
       </div>
       );
   }
